@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 // import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import '../../core/login/login_page.dart';
 import '../../widgets.dart';
 import '../../profile_tab.dart';
 
@@ -47,9 +48,13 @@ class LoginButton extends StatelessWidget {
           color: const Color.fromARGB(255, 4, 43, 86),
           child: const Text('LOGIN'),
           onPressed: () {
-            Navigator.pop(context);
-            Navigator.push<void>(context,
-                MaterialPageRoute(builder: (context) => const ProfileTab()));
+            Navigator.of(context, rootNavigator: true).push<void>(
+              CupertinoPageRoute(
+                title: LoginPage.title,
+                fullscreenDialog: true,
+                builder: (context) => const LoginPage(),
+              ),
+            );
           },
         ));
   }

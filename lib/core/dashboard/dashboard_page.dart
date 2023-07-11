@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 // import '../../components/dashboard_page/card.dart';
 import '../../components/dashboard_page/action_buttons.dart';
+import '../../components/dashboard_page/base_carousel.dart';
 import '../../components/dashboard_page/card_regular.dart';
 import '../../components/dashboard_page/header.dart';
 import '../../components/landing_page/be_a_member.dart';
@@ -144,15 +145,51 @@ class _DashboardPageState extends State<DashboardPage> {
                     borderRadius: BorderRadius.circular(15),
                   ),
                   width: double.infinity,
-                  height: MediaQuery.of(context).size.width * 1.18,
-                  padding: const EdgeInsets.all(5.0),
+                  height: MediaQuery.of(context).size.width * 1.33,
+                  // padding: const EdgeInsets.all(52.0),
                   alignment: Alignment.bottomCenter,
+                  child: Expanded(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.only(top: 80),
+                            child: Column(children: [
+                              const Text(
+                                "Know more about us...",
+                                textDirection: TextDirection.ltr,
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              BaseCarousel()
+                            ]),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 80),
+                            child: Column(children: [
+                              const Text(
+                                "Know more about us...",
+                                textDirection: TextDirection.ltr,
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              BaseCarousel()
+                            ]),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
               ),
               const Column(
                 children: <Widget>[
                   Padding(
-                    padding: EdgeInsets.all(50.0),
+                    padding: EdgeInsets.all(10.0),
                     child: Column(children: [
                       MainLogo(),
                     ]),

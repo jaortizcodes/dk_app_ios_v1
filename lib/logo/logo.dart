@@ -43,8 +43,8 @@ class MainLogo extends StatelessWidget {
   Widget _buildIos(BuildContext context) {
     return Image.asset(
       'assets/dala_logo_white.png',
-      height: 120,
-      width: 120,
+      height: 140,
+      width: 140,
     );
   }
 

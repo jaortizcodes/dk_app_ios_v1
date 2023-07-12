@@ -7,11 +7,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 // import '../../components/dashboard_page/card.dart';
-import '../../components/bottom_navigation.dart';
 import '../../components/dashboard_page/action_buttons.dart';
 import '../../components/dashboard_page/base_carousel.dart';
 import '../../components/dashboard_page/card_regular.dart';
-import '../../components/dashboard_page/dk_bottom_sheet.dart';
 import '../../components/dashboard_page/header.dart';
 import '../../components/landing_page/be_a_member.dart';
 import '../../components/landing_page/login.dart';
@@ -137,94 +135,75 @@ class _DashboardPageState extends State<DashboardPage> {
         ),
         child: SafeArea(
           child: Stack(
-            alignment: Alignment.bottomCenter,
             children: <Widget>[
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.grey,
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                      offset: Offset(
-                        0,
-                        0,
-                      ),
-                    )
-                  ],
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                width: double.infinity,
-                height: MediaQuery.of(context).size.height / 1.60,
-                // padding: const EdgeInsets.all(52.0),
-
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(top: 80),
-                        child: Column(children: [
-                          const Align(
-                            alignment: Alignment.centerLeft,
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 20),
-                              child: Text(
-                                "Know more",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ),
-                          BaseCarousel(),
-                          DKBottomSheet(),
-                        ]),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 50),
-                        child: Column(children: [
-                          const Align(
-                            alignment: Alignment.centerLeft,
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 20),
-                              child: Text(
-                                "Discounts and Promotions",
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: const [],
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  width: double.infinity,
+                  height: MediaQuery.of(context).size.width * 1.33,
+                  // padding: const EdgeInsets.all(52.0),
+                  alignment: Alignment.bottomCenter,
+                  child: Expanded(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.only(top: 80),
+                            child: Column(children: [
+                              const Text(
+                                "Know more about us...",
                                 textDirection: TextDirection.ltr,
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                            ),
+                              BaseCarousel()
+                            ]),
                           ),
-                          BaseCarousel()
-                        ]),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 80),
+                            child: Column(children: [
+                              const Text(
+                                "Know more about us...",
+                                textDirection: TextDirection.ltr,
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              BaseCarousel()
+                            ]),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.only(top: 10.0),
-                width: double.infinity,
-                height: MediaQuery.of(context).size.height / .35,
-                child: const Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Column(children: [
-                    MainLogo(),
-                    Padding(
-                        padding: EdgeInsets.only(top: 10),
-                        child: ActionButtons()),
-                  ]),
-                ),
+              const Column(
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: Column(children: [
+                      MainLogo(),
+                    ]),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 35.0),
+                    child: Column(children: [ActionButtons()]),
+                  ),
+                ],
               ),
             ],
           ),
         ), /* add child content here */
       ),
-      bottomNavigationBar: BottomNavigation(),
       floatingActionButton: FloatingActionButton(
         onPressed: _togglePlatform,
         backgroundColor: Colors.green,

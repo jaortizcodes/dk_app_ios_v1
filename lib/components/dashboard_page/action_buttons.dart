@@ -83,6 +83,28 @@ class ActionButtons extends StatelessWidget {
                   onTap: () {
                     // ignore: avoid_print
                     print("you clicked me");
+                    showModalBottomSheet<void>(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return Container(
+                          height: 200,
+                          color: Colors.white,
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                const Text('Modal BottomSheet'),
+                                ElevatedButton(
+                                  child: const Text('Close BottomSheet'),
+                                  onPressed: () => Navigator.pop(context),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    );
                   }),
               const Text(
                 "Cash In",
@@ -175,7 +197,7 @@ class ActionButtons extends StatelessWidget {
                     print("you clicked me");
                   }),
               const Text(
-                "History",
+                "DK Ride",
                 textDirection: TextDirection.ltr,
                 style: TextStyle(
                   fontSize: 14,

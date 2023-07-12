@@ -5,12 +5,12 @@ import '../../widgets.dart';
 import '../../profile_tab.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class BaseCarousel extends StatelessWidget {
+class BottomNavigation extends StatelessWidget {
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
   static const _logoutMessage = Text(
       "You can't actually log out! This is just a demo of how alerts work.");
 
-  BaseCarousel({super.key});
+  BottomNavigation({super.key});
 
   Widget _buildAndroid(BuildContext context) {
     return ElevatedButton(
@@ -43,53 +43,29 @@ class BaseCarousel extends StatelessWidget {
   }
 
   Widget _buildIos(BuildContext context) {
-    final pages = List.generate(
-        6,
-        (index) => Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                color: Colors.grey.shade300,
-              ),
-              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-              child: Container(
-                height: 280,
-                child: Center(
-                    child: Text(
-                  "Page $index",
-                  style: TextStyle(color: Colors.indigo),
-                )),
-              ),
-            ));
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          SizedBox(height: 16),
-          SizedBox(
-            height: 200,
-            child: PageView.builder(
-              controller: controller,
-              // itemCount: pages.length,
-              itemBuilder: (_, index) {
-                return pages[index % pages.length];
-              },
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 14, bottom: 12),
-            child: SmoothPageIndicator(
-              controller: controller,
-              count: pages.length,
-              effect: const WormEffect(
-                  dotHeight: 10,
-                  dotWidth: 10,
-                  type: WormType.thinUnderground,
-                  dotColor: Colors.grey,
-                  activeDotColor: Colors.amber),
-            ),
-          ),
-        ],
-      ),
+    return BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
+      items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.business),
+          label: 'History',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.school),
+          label: 'Inbox',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.supervised_user_circle),
+          label: 'My Account',
+        ),
+      ],
+      // currentIndex: _selectedIndex,
+      selectedItemColor: Colors.amber,
+      // onTap: _onItemTapped,
     );
   }
 

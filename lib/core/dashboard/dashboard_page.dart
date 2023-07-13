@@ -17,6 +17,7 @@ import '../../components/landing_page/be_a_member.dart';
 import '../../components/landing_page/login.dart';
 import '../../logo/logo.dart';
 import '../../widgets.dart';
+import '../landing_page.dart';
 
 class DashboardPage extends StatefulWidget {
   static const title = 'Dala-Kuha';
@@ -127,108 +128,136 @@ class _DashboardPageState extends State<DashboardPage> {
   }
 
   Widget _buildIos(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/background_round.png"),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: SafeArea(
-          child: Stack(
-            alignment: Alignment.bottomCenter,
-            children: <Widget>[
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.grey,
-                      blurRadius: 1,
-                      spreadRadius: 0,
-                      offset: Offset(
-                        0,
-                        0,
-                      ),
-                    )
-                  ],
-                  borderRadius: BorderRadius.circular(12),
+    Future<bool> showExitPopup() async {
+      return await showDialog(
+            //show confirm dialogue
+            //the return value will be from "Yes" or "No" options
+            context: context,
+            builder: (context) => AlertDialog(
+              title: Text('Exit App'),
+              content: Text('Do you want to exit the application?'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(false),
+                  child: Text('No'),
                 ),
-                width: double.infinity,
-                height: MediaQuery.of(context).size.height / 1.60,
-                // padding: const EdgeInsets.all(52.0),
+                TextButton(
+                  onPressed: () => Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: (context) => LandingPage()),
+                      (Route route) => false),
+                  child: Text('Yes'),
+                ),
+              ],
+            ),
+          ) ??
+          false; //if showDialog had returned null, then return false
+    }
 
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(top: 80),
-                        child: Column(children: [
-                          const Align(
-                            alignment: Alignment.centerLeft,
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 20),
-                              child: Text(
-                                "Know more",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ),
-                          BaseCarousel(),
-                          // DKBottomSheet(),
-                        ]),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 50),
-                        child: Column(children: [
-                          const Align(
-                            alignment: Alignment.centerLeft,
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 20),
-                              child: Text(
-                                "Discounts and Promotions",
-                                textDirection: TextDirection.ltr,
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ),
-                          BaseCarousel()
-                        ]),
-                      ),
+    return WillPopScope(
+      onWillPop: showExitPopup,
+      child: Scaffold(
+        body: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/background_round.png"),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: SafeArea(
+            child: Stack(
+              alignment: Alignment.bottomCenter,
+              children: <Widget>[
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.grey,
+                        blurRadius: 1,
+                        spreadRadius: 0,
+                        offset: Offset(
+                          0,
+                          0,
+                        ),
+                      )
                     ],
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  width: double.infinity,
+                  height: MediaQuery.of(context).size.height / 1.60,
+                  // padding: const EdgeInsets.all(52.0),
+
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(top: 80),
+                          child: Column(children: [
+                            const Align(
+                              alignment: Alignment.centerLeft,
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 20),
+                                child: Text(
+                                  "Know more",
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            BaseCarousel(),
+                            // DKBottomSheet(),
+                          ]),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 50),
+                          child: Column(children: [
+                            const Align(
+                              alignment: Alignment.centerLeft,
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 20),
+                                child: Text(
+                                  "Discounts and Promotions",
+                                  textDirection: TextDirection.ltr,
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            BaseCarousel()
+                          ]),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                margin: const EdgeInsets.only(top: 10.0),
-                width: double.infinity,
-                height: MediaQuery.of(context).size.height / .35,
-                child: const Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Column(children: [
-                    MainLogo(),
-                    Padding(
-                        padding: EdgeInsets.only(top: 10),
-                        child: ActionButtons()),
-                  ]),
+                Container(
+                  margin: const EdgeInsets.only(top: 10.0),
+                  width: double.infinity,
+                  height: MediaQuery.of(context).size.height / .35,
+                  child: const Padding(
+                    padding: EdgeInsets.all(20.0),
+                    child: Column(children: [
+                      MainLogo(),
+                      Padding(
+                          padding: EdgeInsets.only(top: 10),
+                          child: ActionButtons()),
+                    ]),
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ), /* add child content here */
-      ),
-      bottomNavigationBar: BottomNavigation(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _togglePlatform,
-        backgroundColor: Colors.green,
-        child: const Icon(Icons.navigation),
+              ],
+            ),
+          ), /* add child content here */
+        ),
+        bottomNavigationBar: BottomNavigation(),
+        floatingActionButton: FloatingActionButton(
+          onPressed: _togglePlatform,
+          backgroundColor: Colors.green,
+          child: const Icon(Icons.navigation),
+        ),
       ),
     );
   }

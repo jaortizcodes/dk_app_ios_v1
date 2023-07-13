@@ -101,12 +101,10 @@ class MyCustomFormState extends State<MyCustomForm> {
 
                         await Future.delayed(const Duration(seconds: 1));
                         // ignore: use_build_context_synchronously
-                        Navigator.of(context, rootNavigator: true).push<void>(
-                          CupertinoPageRoute(
-                            title: ProfileTab.title,
-                            fullscreenDialog: true,
-                            builder: (context) => const DashboardPage(),
-                          ),
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const DashboardPage()),
                         );
                       }
                     },

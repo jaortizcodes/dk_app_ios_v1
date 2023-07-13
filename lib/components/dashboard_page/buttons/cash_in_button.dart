@@ -1,6 +1,9 @@
 // import 'package:flutter/cupertino.dart';
 // import 'package:flutter/foundation.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../../../core/booking/dk_google_map.dart';
+import '../../../core/booking/dk_mapping.dart';
 import '../../../widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -61,20 +64,47 @@ class CashInButton extends StatelessWidget {
               showModalBottomSheet(
                 context: context,
                 builder: (context) {
-                  return const Wrap(
+                  return Wrap(
                     children: [
                       ListTile(
-                        // leading: Icon(Icons.share),
-                        title: Text('GCash'),
-                      ),
+                          // leading: Icon(Icons.share),
+                          title: Text('GCash'),
+                          onTap: () {
+                            Navigator.of(context, rootNavigator: true)
+                                .push<void>(
+                              CupertinoPageRoute(
+                                // title: DKMap.title,
+                                fullscreenDialog: true,
+                                builder: (context) => const DKGMap(),
+                              ),
+                            );
+                          }),
                       ListTile(
-                        // leading: Icon(Icons.copy),
-                        title: Text('Maya'),
-                      ),
+                          // leading: Icon(Icons.copy),
+                          title: Text('Maya'),
+                          onTap: () {
+                            Navigator.of(context, rootNavigator: true)
+                                .push<void>(
+                              CupertinoPageRoute(
+                                // title: DKMap.title,
+                                fullscreenDialog: true,
+                                builder: (context) => const DKMap(),
+                              ),
+                            );
+                          }),
                       ListTile(
-                        // leading: Icon(Icons.edit),
-                        title: Text('EMango'),
-                      ),
+                          // leading: Icon(Icons.edit),
+                          title: Text('EMango'),
+                          onTap: () {
+                            Navigator.of(context, rootNavigator: true)
+                                .push<void>(
+                              CupertinoPageRoute(
+                                // title: DKMap.title,
+                                fullscreenDialog: true,
+                                builder: (context) => const DKMap(),
+                              ),
+                            );
+                          }),
                     ],
                   );
                 },

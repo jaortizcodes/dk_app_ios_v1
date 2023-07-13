@@ -179,7 +179,7 @@ class _DashboardPageState extends State<DashboardPage> {
                             ),
                           ),
                           BaseCarousel(),
-                          DKBottomSheet(),
+                          // DKBottomSheet(),
                         ]),
                       ),
                       Padding(

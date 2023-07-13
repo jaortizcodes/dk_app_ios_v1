@@ -4,6 +4,11 @@ import 'package:flutter/material.dart';
 import '../../widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'buttons/cash_in_button.dart';
+import 'buttons/cash_out_button.dart';
+import 'buttons/dk_move_button.dart';
+import 'buttons/dk_ride_button.dart';
+
 class ActionButtons extends StatelessWidget {
   static const _logoutMessage = Text(
       "You can't actually log out! This is just a demo of how alerts work.");
@@ -60,53 +65,13 @@ class ActionButtons extends StatelessWidget {
             width: 0.8,
             color: Colors.grey,
           )),
-      child: Row(
+      child: const Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Column(
             children: [
-              GestureDetector(
-                  child: Container(
-                    width: 45,
-                    height: 45,
-                    decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.circular(21),
-                        image: const DecorationImage(
-                            image: AssetImage("assets/cashin.png"),
-                            fit: BoxFit.cover),
-                        shape: BoxShape.rectangle,
-                        border: Border.all(
-                          color: const Color.fromRGBO(2, 2, 119, 1),
-                        )),
-                  ),
-                  onTap: () {
-                    // ignore: avoid_print
-                    print("you clicked me");
-                    showModalBottomSheet<void>(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return Container(
-                          height: 200,
-                          color: Colors.white,
-                          child: Center(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              mainAxisSize: MainAxisSize.min,
-                              children: <Widget>[
-                                const Text('Modal BottomSheet'),
-                                ElevatedButton(
-                                  child: const Text('Close BottomSheet'),
-                                  onPressed: () => Navigator.pop(context),
-                                ),
-                              ],
-                            ),
-                          ),
-                        );
-                      },
-                    );
-                  }),
-              const Text(
+              CashInButton(),
+              Text(
                 "Cash In",
                 textDirection: TextDirection.ltr,
                 style: TextStyle(
@@ -117,26 +82,8 @@ class ActionButtons extends StatelessWidget {
           ),
           Column(
             children: [
-              GestureDetector(
-                  child: Container(
-                    width: 45,
-                    height: 45,
-                    decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.circular(21),
-                        image: const DecorationImage(
-                            image: AssetImage("assets/cashout.png"),
-                            fit: BoxFit.cover),
-                        shape: BoxShape.rectangle,
-                        border: Border.all(
-                          color: const Color.fromRGBO(2, 2, 119, 1),
-                        )),
-                  ),
-                  onTap: () {
-                    // ignore: avoid_print
-                    print("you clicked me");
-                  }),
-              const Text(
+              CashOutButton(),
+              Text(
                 "Cash Out",
                 textDirection: TextDirection.ltr,
                 style: TextStyle(
@@ -147,26 +94,8 @@ class ActionButtons extends StatelessWidget {
           ),
           Column(
             children: [
-              GestureDetector(
-                  child: Container(
-                    width: 45,
-                    height: 45,
-                    decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.circular(21),
-                        image: const DecorationImage(
-                            image: AssetImage("assets/cashin.png"),
-                            fit: BoxFit.cover),
-                        shape: BoxShape.rectangle,
-                        border: Border.all(
-                          color: const Color.fromRGBO(2, 2, 119, 1),
-                        )),
-                  ),
-                  onTap: () {
-                    // ignore: avoid_print
-                    print("you clicked me");
-                  }),
-              const Text(
+              DKMoveButton(),
+              Text(
                 "DK Move",
                 textDirection: TextDirection.ltr,
                 style: TextStyle(
@@ -177,26 +106,8 @@ class ActionButtons extends StatelessWidget {
           ),
           Column(
             children: [
-              GestureDetector(
-                  child: Container(
-                    width: 45,
-                    height: 45,
-                    decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.circular(21),
-                        image: const DecorationImage(
-                            image: AssetImage("assets/cashin.png"),
-                            fit: BoxFit.cover),
-                        shape: BoxShape.rectangle,
-                        border: Border.all(
-                          color: const Color.fromRGBO(2, 2, 119, 1),
-                        )),
-                  ),
-                  onTap: () {
-                    // ignore: avoid_print
-                    print("you clicked me");
-                  }),
-              const Text(
+              DKRideButton(),
+              Text(
                 "DK Ride",
                 textDirection: TextDirection.ltr,
                 style: TextStyle(

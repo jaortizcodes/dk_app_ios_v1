@@ -1,14 +1,14 @@
 // import 'package:flutter/cupertino.dart';
 // import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '../../widgets.dart';
+import '../../../widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class DKBottomSheet extends StatelessWidget {
+class CashInButton extends StatelessWidget {
   static const _logoutMessage = Text(
       "You can't actually log out! This is just a demo of how alerts work.");
 
-  const DKBottomSheet({super.key});
+  const CashInButton({super.key});
 
   Widget _buildAndroid(BuildContext context) {
     return ElevatedButton(
@@ -42,25 +42,38 @@ class DKBottomSheet extends StatelessWidget {
     return Builder(
       builder: (context) {
         return Center(
-          child: ElevatedButton(
-            child: Text('Show Modal Bottom Sheet'),
-            onPressed: () {
+          child: GestureDetector(
+            child: Container(
+              width: 45,
+              height: 45,
+              decoration: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.circular(21),
+                  image: const DecorationImage(
+                      image: AssetImage("assets/cashin.png"),
+                      fit: BoxFit.cover),
+                  shape: BoxShape.rectangle,
+                  border: Border.all(
+                    color: const Color.fromRGBO(2, 2, 119, 1),
+                  )),
+            ),
+            onTap: () {
               showModalBottomSheet(
                 context: context,
                 builder: (context) {
                   return const Wrap(
                     children: [
                       ListTile(
-                        leading: Icon(Icons.share),
-                        title: Text('Share'),
+                        // leading: Icon(Icons.share),
+                        title: Text('GCash'),
                       ),
                       ListTile(
-                        leading: Icon(Icons.copy),
-                        title: Text('Copy Link'),
+                        // leading: Icon(Icons.copy),
+                        title: Text('Maya'),
                       ),
                       ListTile(
-                        leading: Icon(Icons.edit),
-                        title: Text('Edit'),
+                        // leading: Icon(Icons.edit),
+                        title: Text('EMango'),
                       ),
                     ],
                   );

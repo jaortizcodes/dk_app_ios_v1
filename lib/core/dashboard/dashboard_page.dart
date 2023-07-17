@@ -184,7 +184,7 @@ class _DashboardPageState extends State<DashboardPage> {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   width: double.infinity,
-                  height: MediaQuery.of(context).size.height / 1.60,
+                  height: MediaQuery.of(context).size.height / 1.75,
                   // padding: const EdgeInsets.all(52.0),
 
                   child: SingleChildScrollView(
@@ -237,7 +237,7 @@ class _DashboardPageState extends State<DashboardPage> {
                 Container(
                   margin: const EdgeInsets.only(top: 10.0),
                   width: double.infinity,
-                  height: MediaQuery.of(context).size.height / .35,
+                  height: MediaQuery.of(context).size.height / .5,
                   child: const Padding(
                     padding: EdgeInsets.all(20.0),
                     child: Column(children: [

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../widgets.dart';
 import '../../profile_tab.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BaseCarousel extends StatelessWidget {
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
@@ -44,22 +45,29 @@ class BaseCarousel extends StatelessWidget {
 
   Widget _buildIos(BuildContext context) {
     final pages = List.generate(
-        6,
-        (index) => Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                color: Colors.grey.shade300,
+      6,
+      (index) => GestureDetector(
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              color: Colors.grey.shade300,
+            ),
+            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+            child: Container(
+              width: 180,
+              child: Center(
+                child: Image.asset(
+                  'assets/banner1.jpg',
+                  height: 240,
+                  width: 240,
+                ),
               ),
-              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-              child: Container(
-                height: 280,
-                child: Center(
-                    child: Text(
-                  "Page $index",
-                  style: TextStyle(color: Colors.indigo),
-                )),
-              ),
-            ));
+            ),
+          ),
+          onTap: () {
+            _launchURL();
+          }),
+    );
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -110,3 +118,9 @@ final colors = const [
   Colors.blue,
   Colors.amber,
 ];
+_launchURL() async {
+  final Uri url = Uri.parse('https://dalakuha.com');
+  if (!await launchUrl(url, mode: LaunchMode.inAppWebView)) {
+    throw Exception('Could not launch $url');
+  }
+}

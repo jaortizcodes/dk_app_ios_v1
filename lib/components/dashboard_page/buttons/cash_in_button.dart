@@ -63,6 +63,7 @@ class CashInButton extends StatelessWidget {
             onTap: () {
               showModalBottomSheet(
                 context: context,
+                isScrollControlled: true,
                 builder: (context) {
                   return Wrap(
                     children: [
@@ -88,7 +89,7 @@ class CashInButton extends StatelessWidget {
                               CupertinoPageRoute(
                                 // title: DKMap.title,
                                 fullscreenDialog: true,
-                                builder: (context) => const DKMap(),
+                                builder: (context) => const DKGMap(),
                               ),
                             );
                           }),
@@ -101,7 +102,7 @@ class CashInButton extends StatelessWidget {
                               CupertinoPageRoute(
                                 // title: DKMap.title,
                                 fullscreenDialog: true,
-                                builder: (context) => const DKMap(),
+                                builder: (context) => const DKGMap(),
                               ),
                             );
                           }),

@@ -51,11 +51,11 @@ class BottomNavigation extends StatelessWidget {
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.business),
+          icon: Icon(Icons.history),
           label: 'History',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.school),
+          icon: Icon(Icons.message_outlined),
           label: 'Inbox',
         ),
         BottomNavigationBarItem(

@@ -98,7 +98,7 @@ class _NamesPinPageState extends State<NamesPinPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _togglePlatform,
         backgroundColor: Colors.green,
-        child: const Icon(Icons.navigation),
+        child: const Icon(Icons.restart_alt),
       ),
     );
   }
@@ -154,7 +154,7 @@ class _NamesPinPageState extends State<NamesPinPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _togglePlatform,
         backgroundColor: Colors.green,
-        child: const Icon(Icons.navigation),
+        child: const Icon(Icons.restart_alt),
       ),
     );
   }

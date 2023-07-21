@@ -2,9 +2,7 @@ import 'package:flutter/cupertino.dart';
 // import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../../core/dashboard/dashboard_page.dart';
-import '../../core/registration/otp_page.dart';
 import '../../widgets.dart';
-import '../../profile_tab.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key});

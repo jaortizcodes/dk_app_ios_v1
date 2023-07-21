@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../core/registration/otp_page.dart';
 import '../../widgets.dart';
-import '../../profile_tab.dart';
 
 class RegistrationForm extends StatelessWidget {
   const RegistrationForm({super.key});
@@ -84,7 +83,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                         // ignore: use_build_context_synchronously
                         Navigator.of(context, rootNavigator: true).push<void>(
                           CupertinoPageRoute(
-                            title: ProfileTab.title,
+                            title: OTPPage.title,
                             fullscreenDialog: true,
                             builder: (context) => const OTPPage(),
                           ),

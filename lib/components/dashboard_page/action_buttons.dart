@@ -2,7 +2,6 @@
 // import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../../widgets.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'buttons/cash_in_button.dart';
 import 'buttons/cash_out_button.dart';

@@ -98,7 +98,7 @@ class _OTPPageState extends State<OTPPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _togglePlatform,
         backgroundColor: Colors.green,
-        child: const Icon(Icons.navigation),
+        child: const Icon(Icons.restart_alt),
       ),
     );
   }
@@ -148,7 +148,7 @@ class _OTPPageState extends State<OTPPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _togglePlatform,
         backgroundColor: Colors.green,
-        child: const Icon(Icons.navigation),
+        child: const Icon(Icons.restart_alt),
       ),
     );
   }

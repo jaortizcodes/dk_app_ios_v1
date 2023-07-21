@@ -1,7 +1,3 @@
-// Copyright 2020 The Flutter team. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -68,11 +64,6 @@ class TermsAndConditionsPage extends StatelessWidget {
     ]);
   }
 
-  // ===========================================================================
-  // Non-shared code below because on iOS, the settings tab is nested inside of
-  // the profile tab as a button in the nav bar.
-  // ===========================================================================
-
   Widget _buildAndroid(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -93,8 +84,6 @@ class TermsAndConditionsPage extends StatelessWidget {
           padding: EdgeInsets.zero,
           child: const Text("Accept"),
           onPressed: () {
-            // This pushes the settings page as a full page modal dialog on top
-            // of the tab bar and everything.
             Navigator.of(context, rootNavigator: true).push<void>(
               CupertinoPageRoute(
                 title: RegistrationPage.title,
@@ -128,8 +117,6 @@ class LogOutButton extends StatelessWidget {
     return ElevatedButton(
       child: const Text('LOG OUT', style: TextStyle(color: Colors.red)),
       onPressed: () {
-        // You should do something with the result of the dialog prompt in a
-        // real app but this is just a demo.
         showDialog<void>(
           context: context,
           builder: (context) {
@@ -158,8 +145,6 @@ class LogOutButton extends StatelessWidget {
       color: CupertinoColors.destructiveRed,
       child: const Text('Log outs'),
       onPressed: () {
-        // You should do something with the result of the action sheet prompt
-        // in a real app but this is just a demo.
         showCupertinoModalPopup<void>(
           context: context,
           builder: (context) {

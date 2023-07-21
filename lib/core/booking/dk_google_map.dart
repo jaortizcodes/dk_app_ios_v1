@@ -1,12 +1,9 @@
 import 'dart:async';
 
-import 'package:dk_app_ios/core/booking/looking_for_rider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
-
-import '../dashboard/dashboard_page.dart';
 
 void main() => runApp(const DKGMap());
 
@@ -54,7 +51,6 @@ class _DKGMapState extends State<DKGMap> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        // on below line we have given title of app
         title: Text("Pin your location"),
       ),
       body: Stack(
@@ -137,14 +133,12 @@ class _DKGMapState extends State<DKGMap> {
               borderRadius: BorderRadius.circular(12),
             ),
             width: double.infinity,
-            height: MediaQuery.of(context).size.height / 3.0,
-            // padding: const EdgeInsets.all(52.0),
-
+            height: MediaQuery.of(context).size.height / 2.5,
             child: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
                   Padding(
-                    padding: EdgeInsets.only(top: 0),
+                    padding: const EdgeInsets.only(top: 0),
                     child: Column(children: [
                       const Align(
                         alignment: Alignment.centerLeft,
@@ -224,7 +218,6 @@ class _DKGMapState extends State<DKGMap> {
                                       border: OutlineInputBorder(),
                                       hintText: 'Enter amount to be booked',
                                     ),
-                                    // The validator receives the text that the user has entered.
                                     validator: (value) {
                                       if (value == null || value.isEmpty) {
                                         return 'Invalid amount';
@@ -246,24 +239,12 @@ class _DKGMapState extends State<DKGMap> {
                                           });
                                           if (_formKey.currentState!
                                               .validate()) {
-                                            // If the form is valid, display a snackbar. In the real world,
-                                            // you'd often call a server or save the information in a database.
                                             ScaffoldMessenger.of(context)
                                                 .showSnackBar(
                                               const SnackBar(
                                                   content:
                                                       Text('Processing Data')),
                                             );
-
-                                            // await Future.delayed(
-                                            //     const Duration(seconds: 1));
-                                            // // ignore: use_build_context_synchronously
-                                            // Navigator.push(
-                                            //   context,
-                                            //   MaterialPageRoute(
-                                            //       builder: (context) =>
-                                            //           const LookingForRider()),
-                                            // );
 
                                             showDialog(
                                                 context: context,
@@ -380,8 +361,6 @@ class _DKGMapState extends State<DKGMap> {
                           ),
                         ),
                       ),
-
-                      // DKBottomSheet(),
                     ]),
                   ),
                 ],

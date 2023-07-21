@@ -1,11 +1,9 @@
+import 'package:dk_app_ios/core/dashboard/dashboard_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'news_tab.dart';
-import 'profile_tab.dart';
-import 'settings_tab.dart';
 import 'widgets.dart';
 import '../core/landing_page.dart';
 
@@ -138,42 +136,19 @@ class _AndroidDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: NewsTab.androidIcon,
-            title: const Text(NewsTab.title),
+            title: const Text(DashboardPage.title),
             onTap: () {
               Navigator.pop(context);
             },
           ),
           ListTile(
-            leading: NewsTab.androidIcon,
-            title: const Text(NewsTab.title),
+            title: const Text(DashboardPage.title),
             onTap: () {
               Navigator.pop(context);
-              Navigator.push<void>(context,
-                  MaterialPageRoute(builder: (context) => const NewsTab()));
-            },
-          ),
-          ListTile(
-            leading: ProfileTab.androidIcon,
-            title: const Text(ProfileTab.title),
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.push<void>(context,
-                  MaterialPageRoute(builder: (context) => const ProfileTab()));
-            },
-          ),
-          // Long drawer contents are often segmented.
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: Divider(),
-          ),
-          ListTile(
-            leading: SettingsTab.androidIcon,
-            title: const Text(SettingsTab.title),
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.push<void>(context,
-                  MaterialPageRoute(builder: (context) => const SettingsTab()));
+              Navigator.push<void>(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const DashboardPage()));
             },
           ),
         ],

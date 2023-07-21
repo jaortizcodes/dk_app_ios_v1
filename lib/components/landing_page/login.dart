@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../core/login/login_page.dart';
 import '../../widgets.dart';
-import '../../profile_tab.dart';
 
 class LoginButton extends StatelessWidget {
   static const _logoutMessage = Text(

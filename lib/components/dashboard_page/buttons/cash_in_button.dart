@@ -3,9 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../../core/booking/dk_google_map.dart';
-import '../../../core/booking/dk_mapping.dart';
 import '../../../widgets.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class CashInButton extends StatelessWidget {
   static const _logoutMessage = Text(
@@ -69,7 +67,7 @@ class CashInButton extends StatelessWidget {
                     children: [
                       ListTile(
                           // leading: Icon(Icons.share),
-                          title: Text('GCash'),
+                          title: const Text('GCash'),
                           onTap: () {
                             Navigator.of(context, rootNavigator: true)
                                 .push<void>(
@@ -82,7 +80,7 @@ class CashInButton extends StatelessWidget {
                           }),
                       ListTile(
                           // leading: Icon(Icons.copy),
-                          title: Text('Maya'),
+                          title: const Text('Maya'),
                           onTap: () {
                             Navigator.of(context, rootNavigator: true)
                                 .push<void>(
@@ -95,7 +93,7 @@ class CashInButton extends StatelessWidget {
                           }),
                       ListTile(
                           // leading: Icon(Icons.edit),
-                          title: Text('EMango'),
+                          title: const Text('EMango'),
                           onTap: () {
                             Navigator.of(context, rootNavigator: true)
                                 .push<void>(

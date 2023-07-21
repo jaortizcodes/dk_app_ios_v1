@@ -2,7 +2,6 @@
 // import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../../widgets.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class DKBottomSheet extends StatelessWidget {
   static const _logoutMessage = Text(
@@ -43,7 +42,7 @@ class DKBottomSheet extends StatelessWidget {
       builder: (context) {
         return Center(
           child: ElevatedButton(
-            child: Text('Show Modal Bottom Sheet'),
+            child: const Text('Show Modal Bottom Sheet'),
             onPressed: () {
               showModalBottomSheet(
                 context: context,

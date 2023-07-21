@@ -95,7 +95,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _togglePlatform,
         backgroundColor: Colors.green,
-        child: const Icon(Icons.navigation),
+        child: const Icon(Icons.restart_alt),
       ),
     );
   }
@@ -145,7 +145,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _togglePlatform,
         backgroundColor: Colors.green,
-        child: const Icon(Icons.navigation),
+        child: const Icon(Icons.restart_alt),
       ),
     );
   }

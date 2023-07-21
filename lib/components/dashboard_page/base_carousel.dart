@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 // import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../../widgets.dart';
-import '../../profile_tab.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -52,7 +50,7 @@ class BaseCarousel extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
               color: Colors.grey.shade300,
             ),
-            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
             child: Container(
               width: 180,
               child: Center(

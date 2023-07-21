@@ -1,7 +1,3 @@
-// Copyright 2020 The Flutter team. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 // import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -22,16 +18,11 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
-  // static const _itemsLength = 50;
-
-  // final _androidRefreshKey = GlobalKey<RefreshIndicatorState>();
-
   late List<MaterialColor> colors;
   late List<String> songNames;
 
   @override
   void initState() {
-    // _setData();
     super.initState();
   }
 
@@ -44,10 +35,6 @@ class _LandingPageState extends State<LandingPage> {
       debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
     }
 
-    // This rebuilds the application. This should obviously never be
-    // done in a real app but it's done here since this app
-    // unrealistically toggles the current platform for demonstration
-    // purposes.
     WidgetsBinding.instance.reassembleApplication();
   }
 
@@ -99,19 +86,27 @@ class _LandingPageState extends State<LandingPage> {
                 Padding(
                   padding: EdgeInsets.only(top: 100),
                   child: Column(children: [
-                    BeAMemberButton(),
-                    LoginButton(),
+                    // BeAMemberButton(),
+                    // LoginButton(),
+                    Text(
+                      "Switch to iOS build by tapping the floating action button.",
+                      textDirection: TextDirection.ltr,
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Color.fromARGB(255, 5, 70, 122),
+                      ),
+                    ),
                   ]),
                 ),
               ],
             ),
           ],
-        ), /* add child content here */
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _togglePlatform,
         backgroundColor: Colors.green,
-        child: const Icon(Icons.navigation),
+        child: const Icon(Icons.restart_alt),
       ),
     );
   }
@@ -177,12 +172,12 @@ class _LandingPageState extends State<LandingPage> {
               ],
             ),
           ],
-        ), /* add child content here */
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _togglePlatform,
         backgroundColor: Colors.green,
-        child: const Icon(Icons.navigation),
+        child: const Icon(Icons.restart_alt),
       ),
     );
   }

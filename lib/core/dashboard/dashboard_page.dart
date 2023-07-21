@@ -1,18 +1,10 @@
-// Copyright 2020 The Flutter team. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 // import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-// import '../../components/dashboard_page/card.dart';
 import '../../components/bottom_navigation.dart';
 import '../../components/dashboard_page/action_buttons.dart';
 import '../../components/dashboard_page/base_carousel.dart';
-import '../../components/dashboard_page/card_regular.dart';
-import '../../components/dashboard_page/dk_bottom_sheet.dart';
-import '../../components/dashboard_page/header.dart';
+
 import '../../components/landing_page/be_a_member.dart';
 import '../../components/landing_page/login.dart';
 import '../../logo/logo.dart';
@@ -21,8 +13,6 @@ import '../landing_page.dart';
 
 class DashboardPage extends StatefulWidget {
   static const title = 'Dala-Kuha';
-
-  // static const iosIcon = Icon(CupertinoIcons.profile_icon);
 
   const DashboardPage({super.key, this.androidDrawer});
 
@@ -33,16 +23,8 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends State<DashboardPage> {
-  // static const _itemsLength = 50;
-
-  // final _androidRefreshKey = GlobalKey<RefreshIndicatorState>();
-
-  late List<MaterialColor> colors;
-  late List<String> songNames;
-
   @override
   void initState() {
-    // _setData();
     super.initState();
   }
 
@@ -55,10 +37,6 @@ class _DashboardPageState extends State<DashboardPage> {
       debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
     }
 
-    // This rebuilds the application. This should obviously never be
-    // done in a real app but it's done here since this app
-    // unrealistically toggles the current platform for demonstration
-    // purposes.
     WidgetsBinding.instance.reassembleApplication();
   }
 
@@ -117,12 +95,12 @@ class _DashboardPageState extends State<DashboardPage> {
               ],
             ),
           ],
-        ), /* add child content here */
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _togglePlatform,
         backgroundColor: Colors.green,
-        child: const Icon(Icons.navigation),
+        child: const Icon(Icons.restart_alt),
       ),
     );
   }
@@ -130,8 +108,6 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget _buildIos(BuildContext context) {
     Future<bool> showExitPopup() async {
       return await showDialog(
-            //show confirm dialogue
-            //the return value will be from "Yes" or "No" options
             context: context,
             builder: (context) => AlertDialog(
               title: Text('Exit App'),
@@ -150,7 +126,7 @@ class _DashboardPageState extends State<DashboardPage> {
               ],
             ),
           ) ??
-          false; //if showDialog had returned null, then return false
+          false;
     }
 
     return WillPopScope(
@@ -184,9 +160,7 @@ class _DashboardPageState extends State<DashboardPage> {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   width: double.infinity,
-                  height: MediaQuery.of(context).size.height / 1.75,
-                  // padding: const EdgeInsets.all(52.0),
-
+                  height: MediaQuery.of(context).size.height / 1.60,
                   child: SingleChildScrollView(
                     child: Column(
                       children: <Widget>[
@@ -207,7 +181,6 @@ class _DashboardPageState extends State<DashboardPage> {
                               ),
                             ),
                             BaseCarousel(),
-                            // DKBottomSheet(),
                           ]),
                         ),
                         Padding(
@@ -237,7 +210,7 @@ class _DashboardPageState extends State<DashboardPage> {
                 Container(
                   margin: const EdgeInsets.only(top: 10.0),
                   width: double.infinity,
-                  height: MediaQuery.of(context).size.height / .5,
+                  height: MediaQuery.of(context).size.height / .40,
                   child: const Padding(
                     padding: EdgeInsets.all(20.0),
                     child: Column(children: [
@@ -250,13 +223,13 @@ class _DashboardPageState extends State<DashboardPage> {
                 ),
               ],
             ),
-          ), /* add child content here */
+          ),
         ),
         bottomNavigationBar: BottomNavigation(),
         floatingActionButton: FloatingActionButton(
           onPressed: _togglePlatform,
           backgroundColor: Colors.green,
-          child: const Icon(Icons.navigation),
+          child: const Icon(Icons.restart_alt),
         ),
       ),
     );

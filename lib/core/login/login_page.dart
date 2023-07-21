@@ -1,7 +1,3 @@
-// Copyright 2020 The Flutter team. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 // import 'package:flutter/cupertino.dart';
 // import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -23,16 +19,11 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  // static const _itemsLength = 50;
-
-  // final _androidRefreshKey = GlobalKey<RefreshIndicatorState>();
-
   late List<MaterialColor> colors;
   late List<String> songNames;
 
   @override
   void initState() {
-    // _setData();
     super.initState();
   }
 
@@ -45,10 +36,6 @@ class _LoginPageState extends State<LoginPage> {
       debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
     }
 
-    // This rebuilds the application. This should obviously never be
-    // done in a real app but it's done here since this app
-    // unrealistically toggles the current platform for demonstration
-    // purposes.
     WidgetsBinding.instance.reassembleApplication();
   }
 
@@ -96,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _togglePlatform,
         backgroundColor: Colors.green,
-        child: const Icon(Icons.navigation),
+        child: const Icon(Icons.restart_alt),
       ),
     );
   }
@@ -146,7 +133,7 @@ class _LoginPageState extends State<LoginPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _togglePlatform,
         backgroundColor: Colors.green,
-        child: const Icon(Icons.navigation),
+        child: const Icon(Icons.restart_alt),
       ),
     );
   }

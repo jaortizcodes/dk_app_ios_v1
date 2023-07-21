@@ -2,7 +2,6 @@
 // import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../../widgets.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class DashboardHeader extends StatelessWidget {
   static const _logoutMessage = Text(

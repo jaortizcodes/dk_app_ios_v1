@@ -1,9 +1,6 @@
-import 'package:flutter/cupertino.dart';
 // import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../../widgets.dart';
-import '../../profile_tab.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class BottomNavigation extends StatelessWidget {
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
@@ -78,7 +75,7 @@ class BottomNavigation extends StatelessWidget {
   }
 }
 
-final colors = const [
+final colors = [
   Colors.red,
   Colors.green,
   Colors.greenAccent,

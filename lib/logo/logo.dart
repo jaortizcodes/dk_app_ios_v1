@@ -2,7 +2,6 @@
 // import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../../widgets.dart';
-import '../../profile_tab.dart';
 
 class MainLogo extends StatelessWidget {
   static const _logoutMessage = Text(
@@ -15,8 +14,6 @@ class MainLogo extends StatelessWidget {
       child: const Text('LOGIN',
           style: TextStyle(color: Color.fromARGB(255, 2, 12, 116))),
       onPressed: () {
-        // You should do something with the result of the dialog prompt in a
-        // real app but this is just a demo.
         showDialog<void>(
           context: context,
           builder: (context) {
